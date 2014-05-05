@@ -3,6 +3,19 @@ class Creator < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
+  # Attachments
+  has_attached_file :avatar,
+    styles: {
+      large: "600x600#",
+      medium: "300x300#",
+      thumb: "100x100#" },
+    convert_options: {
+      large: "-quality 75 -strip",
+      medium: "-quality 75 -strip",
+      thumb: "-quality 75 -strip" },
+    default_url: "/images/creators/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
   # Relationships
   acts_as_taggable
 

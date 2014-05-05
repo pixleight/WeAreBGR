@@ -1,9 +1,13 @@
 <h1>Listing Creators</h1>
 
+<ul>
 <% @creators.each do |creator| %>
-  <p>
+  <li>
     <%= creator.name %><br>
+    <%= image_tag creator.avatar.url(:large) %><br>
     <%= link_to 'Show', creator %> | <%= link_to 'Edit', edit_creator_path(creator) %> | <%= link_to 'Destroy', creator, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
 <% end %>
+</ul>
 
 <%= link_to 'New Creator', new_creator_path %>

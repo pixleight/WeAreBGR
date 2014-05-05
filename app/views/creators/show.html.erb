@@ -1,5 +1,8 @@
 <% provide(:title, @creator.name) %>
-<h1><%= @creator.name %></h1>
+<h1><%= image_tag @creator.avatar.url(:thumb) %> <%= @creator.name %></h1>
+<p>
+  <%= image_tag @creator.avatar.url(:medium) %>
+</p>
 <ul>
   <% @creator.tags.each do |tag| %>
     <li><%= tag %></li>
