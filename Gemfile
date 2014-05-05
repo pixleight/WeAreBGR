@@ -49,6 +49,9 @@ gem 'acts-as-taggable-on'
 # Paperclip, to handle image uploads
 gem "paperclip", "~> 4.1"
 
+# Zurb Foundation for styling
+gem 'foundation-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
