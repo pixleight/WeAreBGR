@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Wearebgr::Application.config.secret_key_base = 'eb89504948184d92d7ed615e0c16d6b17632159822dced0055cb64d2d6c8ec9692648eae6f7af7b0c4e37cefe498dc259ab2c6fcf78400ad8de8ada88e85576c'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Wearebgr::Application.config.cecret_key_base = secure_token
