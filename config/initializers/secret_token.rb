@@ -24,4 +24,4 @@ def secure_token
   end
 end
 
-Wearebgr::Application.config.cecret_key_base = secure_token
+Wearebgr::Application.config.secret_key_base = secure_token
