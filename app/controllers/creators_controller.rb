@@ -12,6 +12,7 @@ class CreatorsController < ApplicationController
   end
 
   def edit
+    @creator = Creator.find(params[:id])
   end
 
   def create
@@ -25,7 +26,8 @@ class CreatorsController < ApplicationController
   end
 
   def update
-    if @creator.update
+    @creator = Creator.find(params[:id])
+    if @creator.update_attributes(creator_params)
       flash[:success] = "Profile successfully updated"
       redirect_to @creator
     else
