@@ -43,6 +43,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Acts As Taggable On for tagging
+gem 'acts-as-taggable-on'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

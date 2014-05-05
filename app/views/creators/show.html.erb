@@ -1,5 +1,10 @@
 <% provide(:title, @creator.name) %>
-<h1><%= @creator.name %>
+<h1><%= @creator.name %></h1>
+<ul>
+  <% @creator.tags.each do |tag| %>
+    <li><%= tag %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_creator_path(@creator) %> |
 <%= link_to 'Back', creators_path %>

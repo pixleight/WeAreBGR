@@ -1,6 +1,10 @@
 class CreatorsController < ApplicationController
   def index
-    @creators = Creator.all
+    if params[:tag]
+      @creators = Creator.tagged_with(params[:tag])
+    else
+      @creators = Creator.all
+    end
   end
 
   def show
@@ -44,7 +48,7 @@ class CreatorsController < ApplicationController
   private
 
     def creator_params
-      params.require(:creator).permit(:name, :email, :password, :password_confirmation)
+      params.require(:creator).permit(:name, :email, :password, :password_confirmation, :tag_list)
     end
 
 end

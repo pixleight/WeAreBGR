@@ -3,6 +3,9 @@ class Creator < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
+  # Relationships
+  acts_as_taggable
+
   # Validations
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
