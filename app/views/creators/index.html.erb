@@ -1,8 +1,8 @@
 <h1>Listing Creators</h1>
 
-<ul class="small-block-grid-2">
+<ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5" data-equalizer>
 <% @creators.each do |creator| %>
-  <li>
+  <li data-equalizer-watch>
     <%= creator.name %><br>
     <%= image_tag creator.avatar.url(:large) %><br>
     <%= link_to 'Show', creator %> | <%= link_to 'Edit', edit_creator_path(creator) %> | <%= link_to 'Destroy', creator, method: :delete, data: { confirm: 'Are you sure?' } %>

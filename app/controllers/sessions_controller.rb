@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to creator
     else
       # Create an error message & re-render the signin form
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:alert] = 'Invalid email/password combination'
       render 'new'
     end
   end

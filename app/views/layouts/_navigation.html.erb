@@ -17,8 +17,10 @@
             </ul>
           </li>
         <% else %>
-          <li class="active"><%= link_to "Sign In", signin_path %></li>
+          <li class="has-form"><%= link_to "Sign In", signin_path, class: "button" %></li>
+          <li class="has-form"><%= link_to "Sign Up", signup_path, class: "button" %></li>
         <% end %>
+        <li class="show-for-small-only"><a href="http://github.com/pixleight"><i class="fa fa-github fa-2x"></i> Fork Me on Github</a></li>
       </ul>
     </section>
   </nav>

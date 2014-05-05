@@ -3,6 +3,7 @@ Wearebgr::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   root 'creators#index'
   match '/about', to: 'static_pages#about', via: 'get'
+  match '/signup', to: 'creators#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match 'creators/tagged/:tag', to: 'creators#index', as: :tag, via: 'get'

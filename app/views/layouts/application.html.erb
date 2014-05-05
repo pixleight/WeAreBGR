@@ -7,6 +7,7 @@
       <title><%= full_title(yield(:title)) %></title>
 
     <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
@@ -15,14 +16,17 @@
     <%= render "layouts/navigation" %>
 
     <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
+      <div data-alert class="alert-box <%= key %>">
+        <%= value %>
+        <a href="#" class="close">&times;</a>
+      </div>
     <% end %>
 
-    <div class="small-9 columns">
+    <div class="medium-10 columns">
       <%= yield %>
     </div>
-    </div class="small-3 columns">
-      <h3>Menu thingy</h3>
+    </div class="medium-2 columns">
+      <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-facebook-square fa-2x"></i>
     </div>
     <%= javascript_include_tag "application" %>
   </body>
