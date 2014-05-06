@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="small-10 columns">
+    <h1><%= image_tag @creator.avatar.url(:thumb) %> <%= @creator.name %></h1>
+    <p>
+      <%= image_tag @creator.avatar.url(:medium) %>
+    </p>
+  </div>
+  <div class="small-2 columns">
+    <ul>
+      <% @creator.tags.each do |tag| %>
+        <li><%= tag %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
