@@ -17,3 +17,12 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+  $('.overlay-wrap').on('click', function(e) {
+    if( e.target !== this ) {
+      return;
+    }
+    $(this).removeClass('visible');
+  });
+});
