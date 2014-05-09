@@ -19,10 +19,20 @@
 $(function(){ $(document).foundation(); });
 
 $(document).ready(function(){
-  $('.overlay-wrap').on('click', function(e) {
+  $('#overlaywrap').on('click', function(e) {
     if( e.target !== this ) {
       return;
     }
     $(this).removeClass('visible');
+  });
+
+  $('a[data-ajax]').click(function(e){
+    e.preventDefault();
+    $.ajax({
+      url: $(this).attr('href')
+    }).done(function(html){
+      $('#overlay').html(html);
+      $('#overlaywrap').addClass('visible');
+    });
   });
 });

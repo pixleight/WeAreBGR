@@ -1,4 +1,6 @@
 class Creator < ActiveRecord::Base
+  serialize :accounts, JSON
+  
   # Hooks
   before_save { self.email = email.downcase }
   before_create :create_remember_token

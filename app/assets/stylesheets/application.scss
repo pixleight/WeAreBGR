@@ -16,7 +16,7 @@
 
  @import "compass";
 
-.overlay-wrap {
+#overlaywrap {
   display: none;
   position: fixed;
   top: 0;
@@ -32,10 +32,13 @@
   @include perspective(2000);
   @include perspective-origin(50% 0);
 
-  .overlay {
+  #overlay {
     background: #F9F9F9;
-    margin-top: 75px;
     cursor: auto;
+    max-width: 50%;
+    margin: 75px auto;
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
     @include box-shadow(0 5px 15px rgba(#000,0.2));
     @include transform(rotateY(180deg));
     @include transform-origin(50% 0);
@@ -45,7 +48,7 @@
   &.visible {
     display: block;
 
-    .overlay {
+    #overlay {
       @include transform(rotateY(0));
     }
   }

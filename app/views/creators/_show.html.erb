@@ -1,15 +1,28 @@
 <div class="row">
-  <div class="small-10 columns">
-    <h1><%= image_tag @creator.avatar.url(:thumb) %> <%= @creator.name %></h1>
-    <p>
-      <%= image_tag @creator.avatar.url(:medium) %>
-    </p>
-  </div>
-  <div class="small-2 columns">
-    <ul>
-      <% @creator.tags.each do |tag| %>
-        <li><%= tag %></li>
+
+  <div class="small-6 small-push-6 columns">
+    <h2><%= @creator.name %></h2>
+    <% unless @creator.tags.blank? %>
+      <ul class="inline-list">
+        <% @creator.tags.each do |tag| %>
+          <li><%= link_to tag.name, "/creators/tagged/#{tag.name}" %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% unless @creator.accounts.blank? %>
+      <ul class="inline-list">
+      <% @creator.accounts.each do |k, v| %>
+        <% unless v.blank? %>
+          <li><a href="<%= v %>" title="<%= @social_account_list[k] %>" target="_blank"><i class="fa fa-<%= k %> fa-lg"></i></a></li>
+        <% end %>
       <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </div>
+
+  <div class="small-6 small-pull-6 columns">
+    <%= image_tag @creator.avatar.url(:medium) %>
+  </div>
+
 </div>

@@ -29,6 +29,22 @@
   <p>
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
+  </p>
+
+  <%= f.fields_for :accounts do |ff| %>
+    <% @social_account_list.each do |k,v| %>
+      <div class="row collapse">
+        <%= ff.label k, v %>
+        <div class="small-1 columns">
+          <span class="prefix"><i class="fa fa-<%= k %>"></i></span>
+        </div>
+        <div class="small-11 columns">
+          <%= ff.text_field k, value: @creator.accounts[k], placeholder: v %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
   <p>
     <%= f.submit "Create my account", class: "button" %>
   </p>

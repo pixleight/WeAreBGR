@@ -4,9 +4,26 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  before_filter :get_all_tags
+  before_filter :get_all_tags, :set_social_accounts
 
-  def get_all_tags
-    @alltags = ActsAsTaggableOn::Tag.all
-  end
+  private
+    def get_all_tags
+      @alltags = ActsAsTaggableOn::Tag.all
+    end
+
+    def set_social_accounts
+      @social_account_list = {
+        'globe' => 'Website',
+        'facebook' => 'Facebook',
+        'twitter' =>  'Twitter',
+        'linkedin' => 'LinkedIn',
+        'google-plus' => "Google Plus",
+        'tumblr' => 'Tumblr',
+        'instagram' => 'Instagram',
+        'flickr' => 'Flickr',
+        'youtube' => 'YouTube',
+        'github' => 'GitHub',
+        'dribbble' => 'Dribbble'
+      }
+    end
 end

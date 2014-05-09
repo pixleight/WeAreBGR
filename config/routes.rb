@@ -1,5 +1,9 @@
 Wearebgr::Application.routes.draw do
-  resources :creators
+  resources :creators do
+    member do
+      get 'ajax'
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   root 'creators#index'
   match '/about', to: 'static_pages#about', via: 'get'
