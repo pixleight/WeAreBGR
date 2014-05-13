@@ -1,7 +1,7 @@
 <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5" data-equalizer>
 <% @creators.each do |creator| %>
   <li data-equalizer-watch>
-    <%= link_to ( image_tag creator.avatar.url(:large) ), creator, data: { ajax: '' } %>
+    <%= link_to ( creator_image(creator, size: :large) ), creator, data: { ajax: '' } %>
   </li>
 <% end %>
 </ul>

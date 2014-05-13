@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  before_filter :get_all_tags, :set_social_accounts
+  before_filter :get_all_tags, :set_social_accounts, :set_session_seed
 
   private
     def get_all_tags
@@ -25,5 +25,9 @@ class ApplicationController < ActionController::Base
         'github' => 'GitHub',
         'dribbble' => 'Dribbble'
       }
+    end
+
+    def set_session_seed
+      cookies[:random_seed] ||= rand(1024)
     end
 end

@@ -3,7 +3,7 @@ class CreatorsController < ApplicationController
     if params[:tag]
       @creators = Creator.tagged_with(params[:tag])
     else
-      @creators = Creator.all
+      @creators = Creator.all.order("RANDOM()")
     end
   end
 
@@ -31,6 +31,19 @@ class CreatorsController < ApplicationController
   def create
     @creator = Creator.new(creator_params)
     @creator.accounts = params[:creator][:accounts]
+    email_hash = self.short_email_hash(@creator.email)
+    #identicon = Identiconify::Identicon.new(email_hash)
+    #identicon_data = identicon.to_png_blob
+
+    #File.open("public/images/creators/identicons/#{email_hash}.png", "w") do |file|
+    #  file.write(identicon_data)
+    #end
+
+    RubyIdenticon.create_and_save(@creator.email, "public/images/creators/identicons/#{email_hash}.png",
+      border_size: 0,
+      grid_size: 9,
+      square_size: 60
+    )
 
     if @creator.save
       flash[:success] = "Welcome to WeAreBGR!"
@@ -55,6 +68,11 @@ class CreatorsController < ApplicationController
     if @creator.destroy
       redirect_to creators_url
     end
+  end
+
+  def short_email_hash(email)
+    email_hash = Digest::SHA1.hexdigest @creator.email
+    return email_hash[0,8]
   end
 
   private

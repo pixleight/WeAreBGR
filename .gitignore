@@ -27,3 +27,6 @@ doc/
 
 # Ignore public files
 /public/system
+
+# Ignore identicons
+/public/images/creators/identicons
