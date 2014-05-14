@@ -29,7 +29,7 @@ $(document).ready(function(){
   $('a[data-ajax]').click(function(e){
     e.preventDefault();
     $.ajax({
-      url: $(this).attr('href')
+      url: $(this).attr('href') + '/ajax'
     }).done(function(html){
       $('#overlay').html(html);
       $('#overlaywrap').addClass('visible');
