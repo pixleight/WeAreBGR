@@ -11,15 +11,17 @@
     <%= f.text_field :email %>
   </p>
 
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </p>
+  <% unless signed_in? %>
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off", value: "" %>
+    </p>
 
-  <p>
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation %>
-  </p>
+    <p>
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", value: "" %>
+    </p>
+  <% end %>
 
   <p>
     <%= f.label :tag_list %>
@@ -31,21 +33,26 @@
     <%= f.file_field :avatar %>
   </p>
 
-  <%= f.fields_for :accounts do |ff| %>
-    <% @social_account_list.each do |k,v| %>
-      <div class="row collapse">
-        <%= ff.label k, v %>
-        <div class="small-1 columns">
-          <span class="prefix"><i class="fa fa-<%= k %>"></i></span>
+  <div class="row">
+    <%= f.fields_for :accounts do |ff| %>
+      <% @social_account_list.each do |k,v| %>
+        <div class="small-12 medium-6 columns">
+          <div class="row collapse">
+            <%= ff.label k, v %>
+            <div class="small-1 columns">
+              <span class="prefix"><i class="fa fa-<%= k %>"></i></span>
+            </div>
+            <div class="small-11 columns">
+              <%= ff.text_field k, value: @creator.accounts[k], placeholder: v %>
+            </div>
+          </div>
         </div>
-        <div class="small-11 columns">
-          <%= ff.text_field k, value: @creator.accounts[k], placeholder: v %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <p>
-    <%= f.submit "Create my account", class: "button" %>
+    <% #button_text = signed_in? "Create my account" : "Update my account" %>
+    <%= f.submit signed_in? ? "Update" : "Join", class: "button" %>
   </p>
 <% end %>

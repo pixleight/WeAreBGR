@@ -55,7 +55,7 @@ class CreatorsController < ApplicationController
     @creator.accounts = params[:creator][:accounts]
     if @creator.update_attributes(creator_params)
       flash[:success] = "Profile successfully updated"
-      redirect_to @creator
+      redirect_to root_path
     else
       render action: 'edit'
     end
@@ -75,7 +75,7 @@ class CreatorsController < ApplicationController
 
     def correct_creator
       @creator = Creator.find(params[:id])
-      flash[:alert] = "Sorry, you aren't allowed to edit that."
+      flash[:alert] = "Sorry, you aren't allowed to edit that." unless @creator == current_creator
       redirect_to root_url unless @creator == current_creator
     end
 
