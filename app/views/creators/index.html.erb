@@ -1,7 +1,36 @@
 <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5" data-equalizer>
 <% @creators.each do |creator| %>
-  <li data-equalizer-watch>
-    <%= link_to ( creator_image(creator, size: :large) ), creator, data: { ajax: '' } %>
+  <li data-equalizer-watch class="creator-block-item">
+    <%= link_to creator, data: { ajax: '' }, class: 'creator-block' do %>
+
+      <%= creator_image(creator, size: :large, class: 'creator-image') %>
+
+      <aside class="creator-details">
+        <h4><%= creator.name %></h4>
+
+        <% unless creator.tags.blank? %>
+          <ul class="inline-list">
+            <% creator.tags.each do |tag| %>
+              <li><%= tag.name %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <% unless creator.accounts.blank? %>
+          <ul class="inline-list">
+          <% creator.accounts.each do |k, v| %>
+            <% unless v.blank? %>
+              <li><i class="fa fa-<%= k %>"></i></li>
+            <% end %>
+          <% end %>
+          </ul>
+        <% end %>
+
+      </aside>
+
+      <%= creator_image(creator, size: :large, class: 'creator-placeholder-image') %>
+
+    <% end %>
   </li>
 <% end %>
 </ul>
