@@ -28,7 +28,7 @@
       <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-facebook-square fa-2x"></i>
       <ul>
         <% @alltags.each do |tag| %>
-          <li><%= link_to tag.name, "/creators/tagged/#{tag.name}" %></li>
+          <%= link_to "<li>#{tag.name}</li>".html_safe, "/creators/tagged/#{tag.name}" if tag.taggings_count > 0 %>
         <% end %>
       </ul>
     </div>
