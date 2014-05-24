@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509185719) do
+ActiveRecord::Schema.define(version: 20140524011003) do
 
   create_table "creators", force: true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140509185719) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text     "accounts"
+    t.string   "city"
   end
 
   add_index "creators", ["email"], name: "index_creators_on_email", unique: true
