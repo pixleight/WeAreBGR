@@ -24,6 +24,11 @@
   <% end %>
 
   <p>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </p>
+
+  <p>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list %>
   </p>
@@ -52,7 +57,6 @@
   </div>
 
   <p>
-    <% #button_text = signed_in? "Create my account" : "Update my account" %>
     <%= f.submit signed_in? ? "Update" : "Join", class: "button" %>
   </p>
 <% end %>

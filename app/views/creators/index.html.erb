@@ -1,3 +1,4 @@
+<%= "<h2 class=\"subheading\">Tagged: #{params[:tag]}</h2>".html_safe unless params[:tag].blank? %>
 <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5" data-equalizer>
 <% @creators.each do |creator| %>
   <li data-equalizer-watch class="creator-block-item">
@@ -6,6 +7,7 @@
       <%= creator_image(creator, size: :large, class: 'creator-image') %>
 
       <aside class="creator-details">
+        <%= "<span class=\"label secondary right\">#{creator.city}</span>".html_safe unless creator.city.blank? %>
         <h4><%= creator.name %></h4>
 
         <% unless creator.tags.blank? %>
