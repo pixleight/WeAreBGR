@@ -1,6 +1,6 @@
 class Creator < ActiveRecord::Base
   serialize :accounts, JSON
-  
+
   # Hooks
   before_save { self.email = email.downcase }
   before_create :create_remember_token
@@ -29,6 +29,7 @@ class Creator < ActiveRecord::Base
     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, if: :password
+  validates :description, length: { maximum: 140 }
 
   def Creator.new_remember_token
     SecureRandom.urlsafe_base64

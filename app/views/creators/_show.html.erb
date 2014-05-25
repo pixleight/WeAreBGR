@@ -6,6 +6,9 @@
         <small><%= link_to 'Edit', edit_creator_path(@creator) %></small>
       <% end %>
     </h2>
+
+    <%= "<p>#{@creator.description}</p>".html_safe unless @creator.description.blank? %>
+    
     <%= "<p><span class=\"label secondary\">#{@creator.city}</span></p>".html_safe unless @creator.city.blank? %>
 
     <% unless @creator.tags.blank? %>

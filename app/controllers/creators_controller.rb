@@ -70,7 +70,7 @@ class CreatorsController < ApplicationController
   private
 
     def creator_params
-      params.require(:creator).permit(:name, :email, :password, :password_confirmation, :city, :tag_list, :avatar, :accounts)
+      params.require(:creator).permit(:name, :email, :password, :password_confirmation, :city, :description, :tag_list, :avatar, :accounts)
     end
 
     def correct_creator
