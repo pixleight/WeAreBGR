@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   private
     def get_all_tags
-      @alltags = ActsAsTaggableOn::Tag.all
+      @alltags = ActsAsTaggableOn::Tag.all.order(:name)
     end
 
     def set_social_accounts
