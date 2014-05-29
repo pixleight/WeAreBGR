@@ -10,7 +10,7 @@
     <section class="top-bar-section">
       <ul class="right">
         <% if signed_in? %>
-          <li class="active has-dropdown"><%= link_to current_creator.name, creator_path(current_creator), data: { ajax: '' } %>
+          <li class="active has-dropdown"><%= link_to current_creator.name, current_creator, remote: true %>
             <ul class="dropdown">
               <li><%= link_to "Edit Profile", edit_creator_path(current_creator) %></li>
               <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>

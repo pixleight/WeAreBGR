@@ -1,5 +1,2 @@
 <% provide(:title, @creator.name) %>
-<%= render 'show' %>
-
-<%= link_to 'Edit', edit_creator_path(@creator) %> |
-<%= link_to 'Back', creators_path %>
+<%= render @creator %>

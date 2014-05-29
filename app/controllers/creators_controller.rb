@@ -12,12 +12,11 @@ class CreatorsController < ApplicationController
   def show
     @creator = Creator.find(params[:id])
     @creator.accounts ||= {}
-  end
 
-  def ajax
-    @creator = Creator.find(params[:id])
-    @creator.accounts ||= {}
-    render partial: 'show'  # Show only the partial of the page
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def new

@@ -1,6 +1,10 @@
 <div class="row">
 
-  <div class="small-6 small-push-6 columns">
+  <div class="small-12 medium-6 columns">
+    <%= creator_image(@creator, size: :medium) %>
+  </div>
+
+  <div class="small-12 medium-6 columns">
     <h2><%= @creator.name %>
       <% if correct_creator? %>
         <small><%= link_to 'Edit', edit_creator_path(@creator) %></small>
@@ -8,7 +12,7 @@
     </h2>
 
     <%= "<p>#{@creator.description}</p>".html_safe unless @creator.description.blank? %>
-    
+
     <%= "<p><span class=\"label secondary\">#{@creator.city}</span></p>".html_safe unless @creator.city.blank? %>
 
     <% unless @creator.tags.blank? %>
@@ -29,10 +33,6 @@
       </ul>
     <% end %>
 
-  </div>
-
-  <div class="small-6 small-pull-6 columns">
-    <%= creator_image(@creator, size: :medium) %>
   </div>
 
 </div>
