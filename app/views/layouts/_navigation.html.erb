@@ -9,6 +9,7 @@
 
     <section class="top-bar-section">
       <ul class="right">
+        <li><%= link_to "About WeAreBGR", about_path %></li>
         <% if signed_in? %>
           <li class="active has-dropdown"><%= link_to current_creator.name, current_creator, remote: true %>
             <ul class="dropdown">
