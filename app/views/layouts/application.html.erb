@@ -25,17 +25,34 @@
       <%= yield %>
     </div>
     <div class="medium-2 columns">
-      <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-facebook-square fa-2x"></i>
-      <ul>
+      <nav>
+      <ul class="side-nav">
         <% @alltags.each do |tag| %>
-          <%= link_to "<li>#{tag.name}</li>".html_safe, "/creators/tagged/#{tag.name}" if tag.taggings_count > 0 %>
+          <% if tag.taggings_count > 0 %>
+            <li><%= link_to "#{tag.name} <span class=\"label secondary radius\">#{tag.taggings_count}</span>".html_safe, "/creators/tagged/#{tag.name}" %></li>
+          <% end %>
         <% end %>
       </ul>
+      </nav>
     </div>
+
+    <footer class="small-12 columns">
+      <hr />
+      <p class="right">
+        <a href="#" title="Fork me on GitHub"><i class="fa fa-github fa-2x"></i></a> <a href="#" title="Follow us on Twitter"><i class="fa fa-twitter fa-2x"></i></a> <a href="#" title="Like us on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a>
+      </p>
+      <p class="left">
+        &copy; 2014 WeAreBGR | Developed by <a href="http://www.twitter.com/pixleight" title="@pixleight">Chris Violette</a>
+      </p>
+    </footer>
 
     <div id="overlaywrap">
       <div id="overlay">
       </div>
+    </div>
+
+    <div class="ribbon">
+      <a id="forkme" href="https://www.github.com/pixleight/heybangor" target="_blank"><i class="fa fa-github fa-lg"></i> Fork Me on GitHub</a>
     </div>
 
     <%= javascript_include_tag "application" %>

@@ -16,6 +16,24 @@
  */
 
  @import "compass";
+ @import url(//fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans:400,300);
+
+.top-bar {
+ .name {
+   h1 {
+     a {
+       background: url(../images/wearebgr_2x.png) 15px 0 no-repeat;
+       background-size: contain;
+       overflow: hidden;
+       white-space: nowrap;
+       text-indent: 200%;
+       @media only screen and (min-width: 40.063em) {
+         width: 210px;
+       }
+     }
+   }
+ }
+}
 
 #overlaywrap {
   display: none;
@@ -105,6 +123,38 @@
       .creator-image {
         z-index: 10;
       }
+    }
+  }
+}
+
+.ribbon {
+  background-color: #008cba;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 999;
+  /* top left corner */
+  position: fixed;
+  right: -50px;
+  bottom: 40px;
+  /* 45 deg ccw rotation */
+  @include transform(rotate(-45deg));
+  /* shadow */
+  @include box-shadow(0 0 10px #888888);
+
+  a {
+    border: 1px dashed white;
+    color: white;
+    display: block;
+    font: 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 1px 0;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    /* shadow */
+    text-shadow: 0 0 5px #444444;
+
+    &:hover {
+      color: white;
     }
   }
 }
