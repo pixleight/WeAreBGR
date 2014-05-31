@@ -16,6 +16,7 @@
     <%= "<p><span class=\"label secondary\">#{@creator.city}</span></p>".html_safe unless @creator.city.blank? %>
 
     <% unless @creator.tags.blank? %>
+      <h6 class="subheader">I'm pretty good at &hellip;</h6>
       <ul class="inline-list">
         <% @creator.tags.each do |tag| %>
           <li><%= link_to tag.name, "/creators/tagged/#{tag.name}" %></li>
@@ -24,6 +25,7 @@
     <% end %>
 
     <% unless @creator.accounts.blank? %>
+      <h6 class="subheader">Find me on &hellip;</h6>
       <ul class="inline-list">
       <% @creator.accounts.each do |k, v| %>
         <% unless v.blank? %>

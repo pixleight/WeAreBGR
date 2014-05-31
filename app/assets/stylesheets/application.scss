@@ -8,9 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require foundation_and_overrides
  *= require font-awesome
+ *= require_self
 
  *= require_tree .
  */
@@ -28,7 +28,7 @@
        white-space: nowrap;
        text-indent: 200%;
        @media only screen and (min-width: 40.063em) {
-         width: 210px;
+         width: 240px;
        }
      }
    }
@@ -123,6 +123,43 @@
       .creator-image {
         z-index: 10;
       }
+    }
+  }
+
+  h4, h6, .inline-list {
+    font-size: 0.9em;
+  }
+
+  .andmore {
+    font-size: 0.9em;
+    color: scale-color(#000, $lightness: 35%)
+  }
+}
+
+.tags-accordion {
+  dd {
+    > a {
+      font-size: 0.8rem;
+      background: none;
+      color: #666;
+      padding: .25rem;
+    }
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .fa-caret-up {
+    display: none;
+  }
+
+  .active {
+    .fa-caret-up {
+      display: inline-block;
+    }
+    .fa-caret-down {
+      display: none;
     }
   }
 }

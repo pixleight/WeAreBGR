@@ -1,47 +1,49 @@
 <%= form_for @creator, html: { multipart: true } do |f| %>
   <%= render 'shared/error_messages' %>
 
-  <p>
+  <div class="row"><div class="small-12 columns">
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
+  </div></div>
 
-  <p>
+  <div class="row"><div class="small-12 columns">
     <%= f.label :email %>
     <%= f.text_field :email %>
-  </p>
+  </div></div>
 
   <% unless signed_in? %>
-    <p>
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off", value: "" %>
-    </p>
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", value: "" %>
+      </div>
 
-    <p>
-      <%= f.label :password_confirmation, "Confirm Password" %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", value: "" %>
-    </p>
+      <div class="small-6 columns">
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", value: "" %>
+      </div>
+    </div>
   <% end %>
 
-  <p>
+  <div class="row"><div class="small-12 columns">
     <%= f.label :city %>
     <%= f.text_field :city %>
-  </p>
+  </div></div>
 
-  <p>
-    <%= f.label :description %>
+  <div class="row"><div class="small-12 columns">
+    <%= f.label :description %><small>Keep it relatively short... 140 characters or less!</small>
     <%= f.text_area :description %>
-  </p>
+  </div></div>
 
-  <p>
-    <%= f.label :tag_list %>
+  <div class="row"><div class="small-12 columns">
+    <%= f.label :tag_list, "I'm pretty good at..." %><small>Separate tags with commas.</small>
     <%= f.text_field :tag_list %>
-  </p>
+  </div></div>
 
-  <p>
-    <%= f.label :avatar %>
+  <div class="row"><div class="small-12 columns">
+    <%= f.label :avatar, "Photo" %><small>Icon will be generated if no photo uploaded</small>
     <%= f.file_field :avatar %>
-  </p>
+  </div></div>
 
   <div class="row">
     <%= f.fields_for :accounts do |ff| %>
@@ -61,7 +63,7 @@
     <% end %>
   </div>
 
-  <p>
+  <div class="row"><div class="small-12 columns">
     <%= f.submit signed_in? ? "Update" : "Join", class: "button" %>
-  </p>
+  </div></div>
 <% end %>
