@@ -35,7 +35,7 @@ class CreatorsController < ApplicationController
 
     if @creator.save
       flash[:success] = "Welcome to WeAreBGR!"
-      redirect_to @creator
+      redirect_to root_path
     else
       render 'new'
     end
