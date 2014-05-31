@@ -15,7 +15,8 @@ class Creator < ActiveRecord::Base
       large: "-quality 75 -strip",
       medium: "-quality 75 -strip",
       thumb: "-quality 75 -strip" },
-    default_url: "/images/creators/:style/missing.png"
+    default_url: "/images/creators/:style/missing.png",
+    bucket: ENV['WeAreBGR']
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   # Relationships
