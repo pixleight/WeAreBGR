@@ -16,7 +16,9 @@ class Creator < ActiveRecord::Base
       medium: "-quality 75 -strip",
       thumb: "-quality 75 -strip" },
     default_url: "/images/creators/:style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_attachment :avatar,
+    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
+    size: { in: 0..5.megabytes }
 
   # Relationships
   acts_as_taggable

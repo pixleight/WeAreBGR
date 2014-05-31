@@ -1,28 +1,28 @@
-== README
+# WeAreBGR
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is WeAreBGR?
 
-Things you may want to cover:
+WeAreBGR is a collection of all the creators around the Bangor area — artists, designers, carpenters, writers, photographers — if you create, you are BGR.
 
-* Ruby version
+The goal of WeAreBGR is to create a wall of faces of all the people who are driving Bangor forward
 
-* System dependencies
+##Why make this project?
 
-* Configuration
+Part fun, part practice, but mostly to see the faces of all the people who shape the Bangor region into what it is and what it will become.
 
-* Database creation
+Are you a great interior decorator, but need to find a good carpenter? Someone here might have a passion in building. WeAreBGR is about connections, finding out who can do what in and around Bangor
 
-* Database initialization
+## Who made this?
 
-* How to run the test suite
+WeAreBGR is developed in Ruby on Rails by [Chris Violette](https://www.twitter.com/pixleight).
 
-* Services (job queues, cache servers, search engines, etc.)
+## How can I help?
 
-* Deployment instructions
+If you have a passion for web development, you can [fork the project on GitHub](https://github.com/pixleight/WeAreBGR) and contribute to the continued growth of WeAreBGR.
 
-* ...
+# TODO
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Test the site in various browsers. It's not designed to work in older browsers, but should double-check modern ones.
+* Generate a random string filename for file uploads instead of original filename.
+* Add a feature to search existing tags and allow users to select from those -- cut down on repeats that are spelled slightly differently.
+* Add "Creations"  -- projects that people are working on -- and allow Creators to make & link to them
