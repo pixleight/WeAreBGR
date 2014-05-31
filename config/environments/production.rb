@@ -77,4 +77,13 @@ Wearebgr::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['WeAreBGR'],
+      :access_key_id => ENV['AKIAI3JSEFJ4FHS5HWSA'],
+      :secret_access_key => ENV['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']
+    }
+  }
 end

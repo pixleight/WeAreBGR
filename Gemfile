@@ -50,10 +50,7 @@ gem 'acts-as-taggable-on'
 
 # Paperclip, to handle image uploads
 gem "paperclip", "~> 4.1"
-
-# Identicon generation
-gem "identiconify"
-gem "ruby_identicon"
+gem "aws-sdk"
 
 # Zurb Foundation for styling
 gem 'foundation-rails'
