@@ -33,14 +33,6 @@ class CreatorsController < ApplicationController
     @creator = Creator.new(creator_params)
     @creator.accounts = params[:creator][:accounts]
 
-    # Create 8 character hash of email, generate Identicon & save with that filename
-    email_hash = Digest::SHA1.hexdigest(@creator.email)[0,8]
-    RubyIdenticon.create_and_save(@creator.email, "public/images/creators/identicons/#{email_hash}.png",
-      border_size: 0,
-      grid_size: 9,
-      square_size: 60
-    )
-
     if @creator.save
       flash[:success] = "Welcome to WeAreBGR!"
       redirect_to @creator
