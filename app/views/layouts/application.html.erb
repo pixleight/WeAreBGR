@@ -25,15 +25,28 @@
       <%= yield %>
     </div>
     <div class="medium-2 columns">
-      <nav>
+
       <ul class="side-nav">
-        <% @alltags.each do |tag| %>
-          <% if tag.taggings_count > 0 %>
-            <li><%= link_to "#{tag.name} <span class=\"label secondary radius\">#{tag.taggings_count}</span>".html_safe, "/creators/tagged/#{tag.name}" %></li>
-          <% end %>
+        <% @alltags.limit(5).each do |tag| %>
+          <li><%= link_to "#{tag.name} <span class=\"label secondary radius\">#{tag.taggings_count}</span>".html_safe, "/creators/tagged/#{tag.name}" %></li>
         <% end %>
       </ul>
-      </nav>
+
+      <% if @alltags.count > 5 %>
+        <dl class="accordion tags-accordion" data-accordion>
+          <dd>
+            <a href="#more_tags"><i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i> More Tags</a>
+            <div id="more_tags" class="content">
+              <ul class="side-nav">
+              <% @alltags.offset(5).each do |tag| %>
+                <li><%= link_to "#{tag.name} <span class=\"label secondary radius\">#{tag.taggings_count}</span>".html_safe, "/creators/tagged/#{tag.name}" %></li>
+              <% end %>
+              </ul>
+            </div>
+          </dd>
+        </dl>
+      <% end %>
+
     </div>
 
     <footer class="small-12 columns">

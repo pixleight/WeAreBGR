@@ -11,10 +11,12 @@
         <h4><%= creator.name %></h4>
 
         <% unless creator.tags.blank? %>
+          <h6 class="subheader">I'm pretty good at &hellip;</h6>
           <ul class="inline-list">
-            <% creator.tags.each do |tag| %>
+            <% creator.tags.limit(3).each do |tag| %>
               <li><%= tag.name %></li>
             <% end %>
+            <%= "<li class=\"andmore\">and more&hellip;</li>".html_safe if creator.tags.count > 3 %>
           </ul>
         <% end %>
 
